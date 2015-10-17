@@ -9,6 +9,10 @@ Router.map(function() {
   this.route('login', {});
   this.route('register', {});
   this.route('logout', {});
+  this.route('incomes', {}, function() {
+    this.route('add', {});
+    this.route('edit', {});
+  });
 });
 
 export default Router;

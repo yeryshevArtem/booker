@@ -1,3 +1,37 @@
-<h2 id="title">Welcome to Ember</h2>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      {{#link-to "index" classNames="navbar-brand"}}Booker{{/link-to}}
+    </div>
 
-{{outlet}}
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+      <ul class="nav navbar-nav">
+        <!-- <li class="active">{{#link-to "index"}}Home{{/link-to}}</li> -->
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
+<br>
+<br>
+<br>
+<div class="container-fluid">
+  <div class="row">
+    {{#if model.isAuthenticated}}
+      <div class="col-md-2 sidebar">
+        <div class="list-group">
+          {{#link-to "incomes" classNames="list-group-item"}}Incomes{{/link-to}}
+        </div>
+      </div>
+    {{/if}}
+    <div {{bind-attr class="model.isAuthenticated:col-md-10:center-block"}}>
+      {{outlet}}
+    </div>
+  </div>
+</div>

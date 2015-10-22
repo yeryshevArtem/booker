@@ -13,6 +13,10 @@ Router.map(function() {
     this.route('add', {});
     this.route('edit', {});
   });
+  this.route('wallets', function() {
+    this.route('edit', { path: '/:id' });
+    this.route('new', {});
+  });
 });
 
 export default Router;

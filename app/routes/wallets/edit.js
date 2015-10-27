@@ -6,7 +6,18 @@ export default Ember.Route.extend({
   },
   actions: {
     edit: function (wallet) {
-      return alert("Editing wallet with id: " + wallet.get("id"));
+      var id = wallet.id;
+      this.store.findRecord("wallet", id).then(function(current) {
+        var name = wallet.get("name");
+        var balance = wallet.get("balance");
+        current.set("name", name);
+        current.set("balance", balance);
+        current.save();
+      });
+      // return alert("Editing wallet with id: " + wallet.get("id"));
+    },
+    back: function () {
+      return this.transitionTo('wallets');
     }
   }
 });

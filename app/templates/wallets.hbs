@@ -1,3 +1,28 @@
 {{#link-to "wallets.new" classNames="btn btn-info"}}Create a new wallet{{/link-to}}
-{{grid-wallets wallets=model}}
+<div class="row">
+  <div class="col-md-8">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Balance</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model as |wallet|}}
+        <tr>
+          <td>{{wallet.id}}</td>
+          <td>{{wallet.name}}</td>
+          <td>{{wallet.balance}}</td>
+          <td>
+            {{#link-to "wallets.edit" wallet.id classNames="btn btn-primary"}}Edit{{/link-to}}
+            <button type="submit" class="btn btn-danger" {{action "delete" wallet.id}}>Delete</button>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
 {{outlet}}

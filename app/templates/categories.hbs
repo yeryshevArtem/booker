@@ -1,0 +1,28 @@
+{{#link-to "categories.new" classNames="btn btn-info"}}Create a new category{{/link-to}}
+<div class="row">
+  <div class="col-md-8">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Icon</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model as |category|}}
+        <tr>
+          <td>{{category.id}}</td>
+          <td>{{category.name}}</td>
+          <td>{{category.icon}}</td>
+          <td>
+            {{#link-to "categories.edit" category.id classNames="btn btn-primary"}}Edit{{/link-to}}
+            <button type="submit" class="btn btn-danger" {{action "delete" category.id}}>Delete</button>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+{{outlet}}

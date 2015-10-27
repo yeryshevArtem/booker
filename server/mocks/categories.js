@@ -1,21 +1,19 @@
 module.exports = function(app) {
   var express = require('express');
-  var walletsRouter = express.Router();
+  var categoriesRouter = express.Router();
 
-  var wallets = [
-    {id: 1, name: "Main", balance: 100},
-    {id: 2, name: "Another", balance: 200}
+  var categories = [
+    {id: 1, name: "Main", icon: 3},
+    {id: 2, name: "Another", icon: 5}
   ];
 
-  //Get all wallets
-  walletsRouter.get('/', function(req, res) {
+  categoriesRouter.get('/', function(req, res) {
     res.send({
-      'wallets': wallets
+      'categories': categories
     });
   });
 
-  //Create wallet
-  walletsRouter.post('/', function(req, res) {
+  categoriesRouter.post('/', function(req, res) {
     var jsonString = '';
     req.on('data', function (data) {
       jsonString += data;
@@ -29,38 +27,35 @@ module.exports = function(app) {
     });
   });
 
-  //Get specific wallet
-  walletsRouter.get('/:id', function(req, res) {
+  categoriesRouter.get('/:id', function(req, res) {
     res.send({
-      'wallets': {
-        id: req.params.id
+      'categories': {
+        id: req.params.id,
       }
     });
   });
 
-  //Update specific wallet
-  walletsRouter.put('/:id', function(req, res) {
+  categoriesRouter.put('/:id', function(req, res) {
     var jsonString = '';
     req.on('data', function (data) {
       jsonString += data;
     });
     req.on('end', function () {
-      var wallet = JSON.parse(jsonString);
+      var category = JSON.parse(jsonString);
       // console.log(category);
       // responseData = JSON.stringify(category);
       res.send({
-        'wallets': {
-          name: wallet.wallet.name,
-          balance: wallet.wallet.balance
+        'categories': {
+          name: category.category.name,
+          icon: category.category.icon
         }
       });
     });
   });
 
-  //Delete specific wallet
-  walletsRouter.delete('/:id', function(req, res) {
+  categoriesRouter.delete('/:id', function(req, res) {
     res.status(204).end();
   });
 
-  app.use('/api/wallets', walletsRouter);
+  app.use('/api/categories', categoriesRouter);
 };

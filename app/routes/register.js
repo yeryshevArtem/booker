@@ -8,7 +8,7 @@ export default Ember.Route.extend({
         if (password == repeatedPassword) {
           return alert("Password repeated correctly.");
         } else {
-          return alert("Wrong password!");
+            return alert("Wrong password!");
         }
       }
       return alert("All fields are blank.");

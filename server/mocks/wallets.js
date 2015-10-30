@@ -16,14 +16,20 @@ module.exports = function(app) {
 
   //Create wallet
   walletsRouter.post('/', function(req, res) {
+    function getRandomArbitrary(min, max) {
+      var random =  Math.random() * (max - min) + min;
+      var roundRandom = Math.round(random);
+      return roundRandom;
+    };
     var jsonString = '';
     req.on('data', function (data) {
       jsonString += data;
     });
     req.on('end', function () {
-      var category = JSON.parse(jsonString);
-      console.log(category);
-      responseData = JSON.stringify(category);
+      var wallet = JSON.parse(jsonString);
+      wallet.wallet.id = getRandomArbitrary(1, 100);
+      console.log(wallet);
+      responseData = JSON.stringify(wallet);
       res.end(responseData);
       res.status(201).end();
     });
@@ -46,14 +52,7 @@ module.exports = function(app) {
     });
     req.on('end', function () {
       var wallet = JSON.parse(jsonString);
-      // console.log(category);
-      // responseData = JSON.stringify(category);
-      res.send({
-        'wallets': {
-          name: wallet.wallet.name,
-          balance: wallet.wallet.balance
-        }
-      });
+      res.status(204).end();
     });
   });
 

@@ -14,14 +14,20 @@ module.exports = function(app) {
   });
 
   categoriesRouter.post('/', function(req, res) {
+    function getRandomArbitrary(min, max) {
+      var random =  Math.random() * (max - min) + min;
+      var roundRandom = Math.round(random);
+      return roundRandom;
+    };
     var jsonString = '';
     req.on('data', function (data) {
       jsonString += data;
     });
     req.on('end', function () {
-      var category = JSON.parse(jsonString);
+      var category = JSON.parse(jsonString); //Читаем обьект jsonString из строки формата JSON и работаем с ним.
+      category.category.id = getRandomArbitrary(1, 100);
       console.log(category);
-      responseData = JSON.stringify(category);
+      responseData = JSON.stringify(category); //Для передачи данных из JS по сети используем метод stringify(). Преобразуем обьект в строку формата JSON.
       res.end(responseData);
       res.status(201).end();
     });
@@ -42,14 +48,7 @@ module.exports = function(app) {
     });
     req.on('end', function () {
       var category = JSON.parse(jsonString);
-      // console.log(category);
-      // responseData = JSON.stringify(category);
-      res.send({
-        'categories': {
-          name: category.category.name,
-          icon: category.category.icon
-        }
-      });
+      res.status(204).end();
     });
   });
 

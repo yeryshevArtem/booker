@@ -1,9 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model() {
-    return this.store.createRecord("category");
-  },
   actions: {
     create: function (category) {
       // console.log(category);

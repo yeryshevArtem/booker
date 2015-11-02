@@ -5,8 +5,12 @@ export default Ember.Route.extend({
     return this.store.findAll("category");
   },
   actions: {
-    delete: function (categoryId) {
-      return alert("Delete category with id: " + categoryId);
+    delete: function (category) {
+      if (confirm('Are you sure?')) {
+        category.destroyRecord();
+      } else {
+        alert("You cancelled the action!");
+      }
     }
   }
 });

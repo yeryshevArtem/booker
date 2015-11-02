@@ -14,7 +14,7 @@ module.exports = function(app) {
   });
 
   categoriesRouter.post('/', function(req, res) {
-    function getRandomArbitrary(min, max) {
+    function getRandomId(min, max) {
       var random =  Math.random() * (max - min) + min;
       var roundRandom = Math.round(random);
       return roundRandom;
@@ -25,7 +25,7 @@ module.exports = function(app) {
     });
     req.on('end', function () {
       var category = JSON.parse(jsonString); //Читаем обьект jsonString из строки формата JSON и работаем с ним.
-      category.category.id = getRandomArbitrary(1, 100);
+      category.category.id = getRandomId(1, 100);
       console.log(category);
       responseData = JSON.stringify(category); //Для передачи данных из JS по сети используем метод stringify(). Преобразуем обьект в строку формата JSON.
       res.end(responseData);

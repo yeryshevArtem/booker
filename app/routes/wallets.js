@@ -5,8 +5,12 @@ export default Ember.Route.extend({
     return this.store.findAll("wallet");
   },
   actions: {
-    delete: function (walletId) {
-      return alert("Delete wallet with id: " + walletId);
+    delete: function (wallet) {
+      if (confirm('Are you sure?')) {
+        wallet.destroyRecord();
+      } else {
+        alert("You cancelled the action!");
+      }
     }
   }
 });

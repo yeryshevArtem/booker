@@ -16,7 +16,7 @@ module.exports = function(app) {
 
   //Create wallet
   walletsRouter.post('/', function(req, res) {
-    function getRandomArbitrary(min, max) {
+    function getRandomId(min, max) {
       var random =  Math.random() * (max - min) + min;
       var roundRandom = Math.round(random);
       return roundRandom;
@@ -27,7 +27,7 @@ module.exports = function(app) {
     });
     req.on('end', function () {
       var wallet = JSON.parse(jsonString);
-      wallet.wallet.id = getRandomArbitrary(1, 100);
+      wallet.wallet.id = getRandomId(1, 100);
       console.log(wallet);
       responseData = JSON.stringify(wallet);
       res.end(responseData);

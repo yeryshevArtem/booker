@@ -7,9 +7,9 @@ export default Ember.Route.extend({
         name: wallet.get("name"),
         balance: wallet.get("balance")
       }).save().then(function (savedModelInstance) {
-        // console.log(savedModelInstance)
-        // console.log(req)
+        console.log('fsdfs');
       });
+      return this.transitionTo('wallets');
     },
     back: function () {
       return this.transitionTo('wallets');

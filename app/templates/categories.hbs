@@ -17,7 +17,7 @@
           <td>{{category.icon}}</td>
           <td>
             {{#link-to "categories.edit" category.id classNames="btn btn-primary"}}Edit{{/link-to}}
-            <button type="submit" class="btn btn-danger" {{action "delete" category.id}}>Delete</button>
+            <button type="submit" class="btn btn-danger" {{action "delete" category}}>Delete</button>
           </td>
         </tr>
         {{/each}}

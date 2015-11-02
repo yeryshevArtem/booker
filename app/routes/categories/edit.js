@@ -14,6 +14,7 @@ export default Ember.Route.extend({
         current.set("icon", icon);
         current.save();
       });
+      return this.transitionTo('categories');
       // console.log("Saving action in route.");
       // return alert("Editing category with id: " + category.get("id"));
     },

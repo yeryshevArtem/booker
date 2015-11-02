@@ -14,7 +14,7 @@ export default Ember.Route.extend({
         current.set("balance", balance);
         current.save();
       });
-      // return alert("Editing wallet with id: " + wallet.get("id"));
+      return this.transitionTo('wallets');
     },
     back: function () {
       return this.transitionTo('wallets');

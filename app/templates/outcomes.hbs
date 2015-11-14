@@ -1,0 +1,32 @@
+{{#link-to "outcomes.add" classNames="btn btn-info"}}Add a new outcome{{/link-to}}
+<div class="row">
+  <div class="col-md-8">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Summ</th>
+          <th>Category</th>
+          <th>Wallet</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model as |outcome|}}
+        <tr>
+          <td>{{outcome.id}}</td>
+          <td>{{outcome.name}}</td>
+          <td>{{outcome.summ}}</td>
+          <td>{{outcome.category.name}}</td>
+          <td>{{outcome.wallet.name}}</td>
+          <td>
+            {{#link-to "outcomes.edit" outcome.id classNames="btn btn-primary"}}Edit{{/link-to}}
+            <button type="submit" class="btn btn-danger" {{action "delete" outcome}}>Delete</button>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+{{outlet}}

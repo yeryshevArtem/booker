@@ -1,1 +1,32 @@
+{{#link-to "incomes.add" classNames="btn btn-info"}}Add a new income{{/link-to}}
+<div class="row">
+  <div class="col-md-8">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Summ</th>
+          <th>Category</th>
+          <th>Wallet</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model as |income|}}
+        <tr>
+          <td>{{income.id}}</td>
+          <td>{{income.name}}</td>
+          <td>{{income.summ}}</td>
+          <td>{{income.category.name}}</td>
+          <td>{{income.wallet.name}}</td>
+          <td>
+            {{#link-to "incomes.edit" income.id classNames="btn btn-primary"}}Edit{{/link-to}}
+            <button type="submit" class="btn btn-danger" {{action "delete" income}}>Delete</button>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
 {{outlet}}

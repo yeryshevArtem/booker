@@ -19,6 +19,7 @@ module.exports = function(app) {
       var roundRandom = Math.round(random);
       return roundRandom;
     };
+
     var jsonString = '';
     req.on('data', function (data) {
       jsonString += data;
@@ -34,10 +35,15 @@ module.exports = function(app) {
   });
 
   categoriesRouter.get('/:id', function(req, res) {
-    res.send({
-      'categories': {
-        id: req.params.id,
+    var foundCategory = null;
+    categories.forEach(function(category) {
+      if (req.params.id == category.id) {
+        foundCategory = category;
       }
+    });
+
+    res.send({
+      'category': foundCategory
     });
   });
 

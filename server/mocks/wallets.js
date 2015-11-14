@@ -37,10 +37,15 @@ module.exports = function(app) {
 
   //Get specific wallet
   walletsRouter.get('/:id', function(req, res) {
-    res.send({
-      'wallets': {
-        id: req.params.id
+    var foundWallet = null;
+    wallets.forEach(function(wallet) {
+      if (req.params.id == wallet.id) {
+        foundWallet = wallet;
       }
+    });
+
+    res.send({
+      'wallet': foundWallet
     });
   });
 

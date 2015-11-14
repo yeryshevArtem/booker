@@ -11,7 +11,7 @@ Router.map(function() {
   this.route('logout', {});
   this.route('incomes', {}, function() {
     this.route('add', {});
-    this.route('edit', {});
+    this.route('edit', { path: '/edit/:id' });
   });
   this.route('wallets', function() {
     this.route('edit', { path: '/edit/:id' });
@@ -20,6 +20,14 @@ Router.map(function() {
   this.route('categories', function() {
     this.route('edit', { path: '/edit/:id' });
     this.route('new', {});
+  });
+  this.route('currencies', {}, function() {
+    this.route('new', {});
+    this.route('edit', { path: '/edit/:id' });
+  });
+  this.route('outcomes', {}, function() {
+    this.route('add', {});
+    this.route('edit', { path: '/edit/:id' });
   });
 });
 

@@ -1,0 +1,28 @@
+{{#link-to "currencies.new" classNames="btn btn-info"}}Create a new currency{{/link-to}}
+<div class="row">
+  <div class="col-md-8">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Icon</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model as |currency|}}
+        <tr>
+          <td>{{currency.id}}</td>
+          <td>{{currency.name}}</td>
+          <td>{{currency.icon}}</td>
+          <td>
+            {{#link-to "currencies.edit" currency.id classNames="btn btn-primary"}}Edit{{/link-to}}
+            <button type="submit" class="btn btn-danger" {{action "delete" currency}}>Delete</button>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+{{outlet}}

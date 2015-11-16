@@ -5,18 +5,18 @@ export default Ember.Route.extend({
     return this.store.find("currency", params.id);
   },
   actions: {
-    edit: function (currency) {
-      var id = currency.id;
-      this.store.findRecord("currency", id).then(function(current) {
-        var name = currency.get("name");
-        var icon = currency.get("icon");
-        current.set("name", name);
-        current.set("icon", icon);
-        current.save();
+    edit: function () {
+      var currency = this.get("controller.model");
+      var self = this;
+      currency.validate().then(function () {
+        if(currency.get('isValid')) {
+          currency.save().then(function () {
+            self.transitionTo("currencies");
+          });
+        }
+      }).catch(function () {
+        console.log("Something wrong with model!");
       });
-      return this.transitionTo('currencies');
-      // console.log("Saving action in route.");
-      // return alert("Editing category with id: " + category.get("id"));
     },
     back: function () {
       return this.transitionTo('currencies');

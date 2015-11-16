@@ -7,9 +7,9 @@ export default Ember.Component.extend({
     close: function () {
       return this.sendAction('close');
     },
-    save: function (model) {
+    save: function () {
       console.log("Saving action in component.");
-      return this.sendAction('save', model);
+      return this.sendAction('save');
     }
   }
 });

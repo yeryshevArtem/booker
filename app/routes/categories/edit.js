@@ -5,18 +5,18 @@ export default Ember.Route.extend({
     return this.store.find("category", params.id);
   },
   actions: {
-    edit: function (category) {
-      var id = category.id;
-      this.store.findRecord("category", id).then(function(current) {
-        var name = category.get("name");
-        var icon = category.get("icon");
-        current.set("name", name);
-        current.set("icon", icon);
-        current.save();
+    edit: function () {
+      var category = this.get("controller.model");
+      var self = this;
+      category.validate().then(function () {
+        if(category.get('isValid')) {
+          category.save().then(function () {
+            self.transitionTo("categories");
+          });
+        }
+      }).catch(function () {
+        console.log("Something wrong with model!");
       });
-      return this.transitionTo('categories');
-      // console.log("Saving action in route.");
-      // return alert("Editing category with id: " + category.get("id"));
     },
     back: function () {
       return this.transitionTo('categories');

@@ -1,18 +1,27 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  model() {
+    return this.store.createRecord("income");
+  },
   actions: {
-    create: function (income) {
-      this.store.createRecord("income", {
-        name: income.get("name"),
-        summ: income.get("summ"),
-        wallet: income.get("wallet"),
-        category: income.get("category")
-      }).save().then(function (savedModelInstance) {
-        console.log(wallet);
-        console.log(category);
+    willTransition: function () {
+      if (this.get("controller.model.isNew")) {
+        return this.get("controller.model").destroyRecord();
+      }
+    },
+    create: function () {
+      var self = this;
+      var income = this.get("controller.model");
+      income.validate().then(function () {
+        if(income.get('isValid')) {
+          income.save().then(function () {
+            self.transitionTo('incomes');
+          });
+        }
+      }).catch(function () {
+        console.log("Something wrong with model!");
       });
-      return this.transitionTo('incomes');
     },
     back: function () {
       return this.transitionTo('incomes');

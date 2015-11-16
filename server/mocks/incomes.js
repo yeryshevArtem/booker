@@ -3,8 +3,8 @@ module.exports = function(app) {
   var incomesRouter = express.Router();
 
   var incomes = [
-    {id: 1, name: "Advance", summ: 545, "links": { "category": "/api/categories/1",  "wallet": "/api/wallets/1" }},
-    {id: 2, name: "Award", summ: 220, "links": { "category": "/api/categories/2",  "wallet": "/api/wallets/2" }}
+    {id: 1, name: "Advance", amount: 545, "links": { "category": "/api/categories/1",  "wallet": "/api/wallets/1" }},
+    {id: 2, name: "Award", amount: 220, "links": { "category": "/api/categories/2",  "wallet": "/api/wallets/2" }}
   ];
 
 

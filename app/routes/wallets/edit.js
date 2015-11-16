@@ -5,16 +5,18 @@ export default Ember.Route.extend({
     return this.store.find("wallet", params.id);
   },
   actions: {
-    edit: function (wallet) {
-      var id = wallet.id;
-      this.store.findRecord("wallet", id).then(function(current) {
-        var name = wallet.get("name");
-        var balance = wallet.get("balance");
-        current.set("name", name);
-        current.set("balance", balance);
-        current.save();
+    edit: function () {
+      var wallet = this.get("controller.model");
+      var self = this;
+      wallet.validate().then(function () {
+        if(wallet.get('isValid')) {
+          wallet.save().then(function () {
+            self.transitionTo('wallets');
+          });
+        }
+      }).catch(function () {
+        console.log("Something wrong with model!");
       });
-      return this.transitionTo('wallets');
     },
     back: function () {
       return this.transitionTo('wallets');

@@ -1,23 +1,11 @@
 import Ember from 'ember';
+import RouteFormMixin from '../../mixins/route-form-mixin';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(RouteFormMixin, {
   model(params) {
     return this.store.find("income", params.id);
   },
   actions: {
-    edit: function () {
-      var income = this.get("controller.model");
-      var self = this;
-      income.validate().then(function () {
-        if(income.get('isValid')) {
-          income.save().then(function () {
-            self.transitionTo('incomes');
-          });
-        }
-      }).catch(function () {
-        console.log("Something wrong with model!");
-      });
-    },
     back: function () {
       return this.transitionTo('incomes');
     }

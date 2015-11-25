@@ -1,23 +1,11 @@
 import Ember from 'ember';
+import RouteFormMixin from '../../mixins/route-form-mixin';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(RouteFormMixin, {
   model(params) {
     return this.store.find("category", params.id);
   },
   actions: {
-    edit: function () {
-      var category = this.get("controller.model");
-      var self = this;
-      category.validate().then(function () {
-        if(category.get('isValid')) {
-          category.save().then(function () {
-            self.transitionTo("categories");
-          });
-        }
-      }).catch(function () {
-        console.log("Something wrong with model!");
-      });
-    },
     back: function () {
       return this.transitionTo('categories');
     }

@@ -8,8 +8,6 @@ export default Ember.Route.extend({
     delete: function (outcome) {
       if (confirm('Are you sure?')) {
         outcome.destroyRecord();
-      } else {
-        alert("You cancelled the action!");
       }
     }
   }

@@ -10,7 +10,7 @@ Router.map(function() {
   this.route('register', {});
   this.route('logout', {});
   this.route('incomes', {}, function() {
-    this.route('add', {});
+    this.route('new', {});
     this.route('edit', { path: '/edit/:id' });
   });
   this.route('wallets', function() {
@@ -26,7 +26,7 @@ Router.map(function() {
     this.route('edit', { path: '/edit/:id' });
   });
   this.route('outcomes', {}, function() {
-    this.route('add', {});
+    this.route('new', {});
     this.route('edit', { path: '/edit/:id' });
   });
 });

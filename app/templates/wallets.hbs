@@ -17,7 +17,7 @@
           <td>{{wallet.balance}}</td>
           <td>
             {{#link-to "wallets.edit" wallet.id classNames="btn btn-primary"}}Edit{{/link-to}}
-            <button type="submit" class="btn btn-danger" {{action "delete" wallet}}>Delete</button>
+            <button class="btn btn-danger" {{action "delete" wallet}}>Delete</button>
           </td>
         </tr>
         {{/each}}

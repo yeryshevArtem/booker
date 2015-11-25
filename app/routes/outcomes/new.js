@@ -4,11 +4,11 @@ import RouteFormMixin from '../../mixins/route-form-mixin';
 
 export default Ember.Route.extend(RouteNewMixin, RouteFormMixin, {
   model() {
-    return this.store.createRecord("category");
+    return this.store.createRecord("outcome");
   },
   actions: {
     back: function () {
-      return this.transitionTo('categories');
+      return this.transitionTo('outcomes');
     }
   }
 });

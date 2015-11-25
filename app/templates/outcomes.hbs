@@ -1,4 +1,4 @@
-{{#link-to "outcomes.add" classNames="btn btn-info"}}Add a new outcome{{/link-to}}
+{{#link-to "outcomes.new" classNames="btn btn-info"}}Add outcome{{/link-to}}
 <div class="row">
   <div class="col-md-8">
     <table class="table table-hover">
@@ -21,7 +21,7 @@
           <td>{{outcome.wallet.name}}</td>
           <td>
             {{#link-to "outcomes.edit" outcome.id classNames="btn btn-primary"}}Edit{{/link-to}}
-            <button type="submit" class="btn btn-danger" {{action "delete" outcome}}>Delete</button>
+            <button class="btn btn-danger" {{action "delete" outcome}}>Delete</button>
           </td>
         </tr>
         {{/each}}

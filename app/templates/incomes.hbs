@@ -1,4 +1,4 @@
-{{#link-to "incomes.add" classNames="btn btn-info"}}Add a new income{{/link-to}}
+{{#link-to "incomes.new" classNames="btn btn-info"}}Add income{{/link-to}}
 <div class="row">
   <div class="col-md-8">
     <table class="table table-hover">
@@ -21,7 +21,7 @@
           <td>{{income.wallet.name}}</td>
           <td>
             {{#link-to "incomes.edit" income.id classNames="btn btn-primary"}}Edit{{/link-to}}
-            <button type="submit" class="btn btn-danger" {{action "delete" income}}>Delete</button>
+            <button class="btn btn-danger" {{action "delete" income}}>Delete</button>
           </td>
         </tr>
         {{/each}}

@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-8">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          {{#each headerCellsNames as |headerCellName|}}
+            <th>{{headerCellName}}</th>
+          {{/each}}
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model as |currentModel|}}
+        <tr>
+          <!-- {{#each headerCellsNames as |headerCellName|}}
+            <td>{{currentModel[headerCellName]}}</td>
+          {{/each}} -->
+          <td class="action-buttons">
+            {{yield}}
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

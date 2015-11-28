@@ -2,14 +2,7 @@
   <div class="row">
     <div class="col-md-4">
       <br>
-      <form>
-        {{#input-wrapper for="name" model=model}}
-          {{input type="text" value=model.name classNames="form-control" placeholder="Wallet name"}}
-        {{/input-wrapper}}
-        {{#input-wrapper for="balance" model=model}}
-          {{input type="text" value=model.balance classNames="form-control" placeholder="Balance"}}
-        {{/input-wrapper}}
-      </form>
+    {{partial "forms/-wallet"}}
     </div>
   </div>
 {{/modal-window}}

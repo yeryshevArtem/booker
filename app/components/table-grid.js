@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  model: null, //pass
-  headerCellsNames: function () {
-    //TODO: get header cells names from model and return array of strings
-  }.property(),
+  content: null, //pass array of objects
+  columnsNames: function () {
+    //TODO: return Ember.Object.keys(this.get("content.firstObject"))
+  }.property("content"), //TODO: fix
 });

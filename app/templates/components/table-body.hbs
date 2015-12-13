@@ -1,0 +1,6 @@
+<tbody>
+  {{#each content as |objectInstance|}}
+    {{table-body-row content=objectInstance}}
+  {{/each}}
+  <button {{action "loadMore"}}>Load more...</button>
+</tbody>

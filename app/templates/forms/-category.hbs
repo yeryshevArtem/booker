@@ -1,8 +1,8 @@
 <form>
-  {{#input-wrapper for="name" model=model}}
+  {{#input-wrapper for="name" model=model save="save"}}
     {{input type="text" value=model.name classNames="form-control" placeholder="Category name"}}
   {{/input-wrapper}}
-  {{#input-wrapper for="icon" model=model}}
+  {{#input-wrapper for="icon" model=model save="save"}}
     {{input type="text" value=model.icon classNames="form-control" placeholder="Icon"}}
   {{/input-wrapper}}
 </form>

@@ -8,7 +8,9 @@ export default Ember.Mixin.create({
       model.validate().then(function () {
         if(model.get('isValid')) {
           model.save().then(function () {
-            //TODO: self.transitionTo('wallets');
+            console.log(model.toJSON().name);
+            console.log('model has been saved!');
+            self.transitionTo('categories');
           });
         }
       }).catch(function () {

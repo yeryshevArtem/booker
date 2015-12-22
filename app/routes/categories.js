@@ -5,10 +5,11 @@ export default Ember.Route.extend({
     return this.store.findAll("category");
   },
   actions: {
-    delete: function (category) {
+    delete: function (contentDeleted) {//pass model
       if (confirm('Are you sure?')) {
-        category.destroyRecord();
-      } 
+        contentDeleted.destroyRecord();
+        console.log('dadasdasdasdadasdasd!');
+      }
     }
   }
 });

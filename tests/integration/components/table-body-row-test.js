@@ -13,7 +13,7 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{table-body-row}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.equal(this.$().text().trim().replace(/Edit/g, '' ).replace(/\n/g, '').replace(/ /g, '').replace(/Delete/g, ''), '');
 
   // Template block usage:
   this.render(hbs`
@@ -22,5 +22,5 @@ test('it renders', function(assert) {
     {{/table-body-row}}
   `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$().text().trim().replace(/Edit/g, '' ).replace(/\n/g, '').replace(/ /g, '').replace(/Delete/g, ''), '');
 });

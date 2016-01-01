@@ -21,6 +21,6 @@ test('it renders', function(assert) {
       template block text
     {{/table-head}}
   `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  console.log(this.$().text().trim().replace(/ /g, 'template block text'));
+  assert.equal(this.$().text().trim().replace(/^/g, 'template block text'), 'template block text');
 });

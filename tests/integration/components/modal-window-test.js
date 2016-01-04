@@ -13,7 +13,7 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{modal-window}}`);
 
-  assert.equal(this.$().text().trim().replace(/\n/g, '').replace(/ /g, ''), '×CloseSavechanges');
+  assert.equal(this.$().text().trim().replace(/\n/g, '').replace(/ /g, ''), '×CancelSavechanges');
 
   // Template block usage:
   this.render(hbs`
@@ -22,5 +22,5 @@ test('it renders', function(assert) {
     {{/modal-window}}
   `);
 
-  assert.equal(this.$().text().trim().replace(/\n/g, '').replace(/ /g, '').replace(/×/i, '').replace(/CloseSavechanges/i, '' ), 'templateblocktext');
+  assert.equal(this.$().text().trim().replace(/\n/g, '').replace(/ /g, '').replace(/×/i, '').replace(/CancelSavechanges/i, '' ), 'templateblocktext');
 });

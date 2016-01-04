@@ -1,18 +1,18 @@
 {
   "stats": {
-    "suites": 107,
-    "tests": 117,
-    "passes": 117,
+    "suites": 139,
+    "tests": 197,
+    "passes": 197,
     "pending": 0,
     "failures": 0,
-    "start": "2016-01-01T17:43:17.623Z",
-    "end": "2016-01-01T17:43:21.706Z"
+    "start": "2016-01-04T18:15:34.097Z",
+    "end": "2016-01-04T18:16:02.487Z"
   },
   "coverage": {
     "total": {
-      "statementsTotal": 315,
-      "statementsCovered": 249,
-      "percentage": 79.05
+      "statementsTotal": 339,
+      "statementsCovered": 331,
+      "percentage": 97.64
     },
     "files": [
       {
@@ -48,14 +48,14 @@
       {
         "name": "booker/mixins/route-form-mixin",
         "statementsTotal": 10,
-        "statementsCovered": 9,
-        "percentage": 90
+        "statementsCovered": 10,
+        "percentage": 100
       },
       {
         "name": "booker/mixins/route-new-mixin",
         "statementsTotal": 5,
-        "statementsCovered": 3,
-        "percentage": 60
+        "statementsCovered": 5,
+        "percentage": 100
       },
       {
         "name": "booker/router",
@@ -71,15 +71,15 @@
       },
       {
         "name": "booker/routes/categories",
-        "statementsTotal": 7,
-        "statementsCovered": 4,
-        "percentage": 57.14
+        "statementsTotal": 9,
+        "statementsCovered": 9,
+        "percentage": 100
       },
       {
         "name": "booker/routes/categories/edit",
         "statementsTotal": 7,
-        "statementsCovered": 6,
-        "percentage": 85.71
+        "statementsCovered": 7,
+        "percentage": 100
       },
       {
         "name": "booker/models/category",
@@ -113,39 +113,39 @@
       },
       {
         "name": "booker/routes/incomes",
-        "statementsTotal": 6,
-        "statementsCovered": 3,
-        "percentage": 50
+        "statementsTotal": 9,
+        "statementsCovered": 9,
+        "percentage": 100
       },
       {
         "name": "booker/routes/outcomes",
-        "statementsTotal": 6,
-        "statementsCovered": 3,
-        "percentage": 50
+        "statementsTotal": 9,
+        "statementsCovered": 9,
+        "percentage": 100
       },
       {
         "name": "booker/routes/wallets",
-        "statementsTotal": 6,
-        "statementsCovered": 3,
-        "percentage": 50
+        "statementsTotal": 9,
+        "statementsCovered": 9,
+        "percentage": 100
       },
       {
         "name": "booker/routes/currencies",
-        "statementsTotal": 6,
-        "statementsCovered": 3,
-        "percentage": 50
+        "statementsTotal": 9,
+        "statementsCovered": 9,
+        "percentage": 100
       },
       {
         "name": "booker/routes/categories/new",
-        "statementsTotal": 5,
-        "statementsCovered": 3,
-        "percentage": 60
+        "statementsTotal": 7,
+        "statementsCovered": 7,
+        "percentage": 100
       },
       {
         "name": "booker/components/table-grid",
         "statementsTotal": 5,
-        "statementsCovered": 4,
-        "percentage": 80
+        "statementsCovered": 5,
+        "percentage": 100
       },
       {
         "name": "booker/components/table-head",
@@ -167,26 +167,32 @@
       },
       {
         "name": "booker/components/table-body",
-        "statementsTotal": 4,
-        "statementsCovered": 3,
-        "percentage": 75
+        "statementsTotal": 5,
+        "statementsCovered": 5,
+        "percentage": 100
       },
       {
         "name": "booker/components/table-body-row",
-        "statementsTotal": 6,
-        "statementsCovered": 3,
-        "percentage": 50
+        "statementsTotal": 5,
+        "statementsCovered": 5,
+        "percentage": 100
       },
       {
         "name": "booker/components/modal-window",
         "statementsTotal": 7,
-        "statementsCovered": 6,
-        "percentage": 85.71
+        "statementsCovered": 7,
+        "percentage": 100
       },
       {
         "name": "booker/components/input-wrapper",
         "statementsTotal": 5,
         "statementsCovered": 5,
+        "percentage": 100
+      },
+      {
+        "name": "booker/routes/currencies/edit",
+        "statementsTotal": 7,
+        "statementsCovered": 7,
         "percentage": 100
       },
       {
@@ -196,76 +202,70 @@
         "percentage": 100
       },
       {
+        "name": "booker/routes/currencies/new",
+        "statementsTotal": 7,
+        "statementsCovered": 7,
+        "percentage": 100
+      },
+      {
+        "name": "booker/routes/incomes/edit",
+        "statementsTotal": 7,
+        "statementsCovered": 7,
+        "percentage": 100
+      },
+      {
         "name": "booker/models/wallet",
         "statementsTotal": 3,
         "statementsCovered": 3,
         "percentage": 100
       },
       {
-        "name": "booker/routes/currencies/edit",
-        "statementsTotal": 7,
-        "statementsCovered": 3,
-        "percentage": 42.86
-      },
-      {
-        "name": "booker/routes/currencies/new",
-        "statementsTotal": 5,
-        "statementsCovered": 3,
-        "percentage": 60
-      },
-      {
-        "name": "booker/routes/incomes/edit",
-        "statementsTotal": 7,
-        "statementsCovered": 3,
-        "percentage": 42.86
-      },
-      {
         "name": "booker/routes/incomes/new",
-        "statementsTotal": 5,
-        "statementsCovered": 3,
-        "percentage": 60
+        "statementsTotal": 7,
+        "statementsCovered": 7,
+        "percentage": 100
       },
       {
         "name": "booker/routes/login",
         "statementsTotal": 5,
-        "statementsCovered": 3,
-        "percentage": 60
+        "statementsCovered": 5,
+        "percentage": 100
+      },
+      {
+        "name": "booker/routes/register",
+        "statementsTotal": 8,
+        "statementsCovered": 8,
+        "percentage": 100
+      },
+      {
+        "name": "booker/routes/outcomes/edit",
+        "statementsTotal": 7,
+        "statementsCovered": 7,
+        "percentage": 100
+      },
+      {
+        "name": "booker/routes/outcomes/new",
+        "statementsTotal": 7,
+        "statementsCovered": 7,
+        "percentage": 100
+      },
+      {
+        "name": "booker/routes/wallets/edit",
+        "statementsTotal": 7,
+        "statementsCovered": 7,
+        "percentage": 100
+      },
+      {
+        "name": "booker/routes/wallets/new",
+        "statementsTotal": 7,
+        "statementsCovered": 7,
+        "percentage": 100
       },
       {
         "name": "booker/routes/logout",
         "statementsTotal": 3,
         "statementsCovered": 3,
         "percentage": 100
-      },
-      {
-        "name": "booker/routes/outcomes/edit",
-        "statementsTotal": 7,
-        "statementsCovered": 3,
-        "percentage": 42.86
-      },
-      {
-        "name": "booker/routes/outcomes/new",
-        "statementsTotal": 5,
-        "statementsCovered": 3,
-        "percentage": 60
-      },
-      {
-        "name": "booker/routes/register",
-        "statementsTotal": 8,
-        "statementsCovered": 3,
-        "percentage": 37.5
-      },
-      {
-        "name": "booker/routes/wallets/edit",
-        "statementsTotal": 7,
-        "statementsCovered": 3,
-        "percentage": 42.86
-      },
-      {
-        "name": "booker/routes/wallets/new",
-        "statementsTotal": 5,
-        "statementsCovered": 3,
-        "percentage": 60
       },
       {
         "name": "booker/components/bs-accordion-item",

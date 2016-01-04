@@ -5,10 +5,16 @@ export default Ember.Route.extend({
     return this.store.findAll("outcome");
   },
   actions: {
-    delete: function (outcome) {
-      if (confirm('Are you sure?')) {
-        outcome.destroyRecord();
-      }
+    openDialog: function (outcome) {
+      this.get("controller").set('isModalDialogActive', true);
+      this.get("controller").set('outcome', outcome);
+    },
+    closeDialog: function () {
+      this.get("controller").set('isModalDialogActive', false);
+    },
+    delete: function () {
+      this.get('controller.outcome').destroyRecord();
+      this.get("controller").set('isModalDialogActive', false);
     }
   }
 });

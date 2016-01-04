@@ -5,11 +5,16 @@ export default Ember.Route.extend({
     return this.store.findAll("category");
   },
   actions: {
-    delete: function (contentDeleted) {//pass model
-      if (confirm('Are you sure?')) {
-        contentDeleted.destroyRecord();
-        console.log('dadasdasdasdadasdasd!');
-      }
+    openDialog: function (contentDeleted) {
+      this.get("controller").set('isModalDialogActive', true);
+      this.get("controller").set('contentDeleted', contentDeleted);
+    },
+    closeDialog: function () {
+      this.get("controller").set('isModalDialogActive', false);
+    },
+    delete: function () {
+      this.get('controller.contentDeleted').destroyRecord();
+      this.get("controller").set('isModalDialogActive', false);
     }
   }
 });

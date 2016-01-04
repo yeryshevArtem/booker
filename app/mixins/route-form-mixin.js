@@ -4,6 +4,7 @@ export default Ember.Mixin.create({
   afterSave: function () {
     console.log('Saved');
   },
+  model: null,
   actions: {
     save: function () {
       var self = this;

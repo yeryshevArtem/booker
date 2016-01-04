@@ -5,10 +5,16 @@ export default Ember.Route.extend({
     return this.store.findAll("currency");
   },
   actions: {
-    delete: function (currency) {
-      if (confirm('Are you sure?')) {
-        currency.destroyRecord();
-      }
+    openDialog: function (currency) {
+      this.get("controller").set('isModalDialogActive', true);
+      this.get("controller").set('currency', currency);
+    },
+    closeDialog: function () {
+      this.get("controller").set('isModalDialogActive', false);
+    },
+    delete: function () {
+      this.get('controller.currency').destroyRecord();
+      this.get("controller").set('isModalDialogActive', false);
     }
   }
 });

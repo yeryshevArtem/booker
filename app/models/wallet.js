@@ -9,11 +9,10 @@ export default DS.Model.extend(EmberValidations, {
   incomes: DS.hasMany('income'),
   validations: {
     name: {
-      presence: { true, message: 'must not be blank' }
+      presence: true
     },
     balance: {
-      presence: { true, message: 'must not be blank' },
-      numericality: true
+      presence: true
     }
   }
 });

@@ -7,11 +7,19 @@
         <h4 class="modal-title">{{title}}</h4>
       </div>
       <div class="modal-body">
-        {{yield}}
+        {{#if isDeleteConfirm}}
+          <h2>Are you sure?</h2>
+        {{else}}
+          {{yield}}
+        {{/if}}
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" {{action "close"}}>Close</button>
-        <button type="button" class="btn btn-primary save" {{action "save" model}}>Save changes</button>
+        <button type="button" class="btn btn-default cancel" {{action "close"}}>Cancel</button>
+        {{#if isDeleteConfirm}}
+          <button type="button" class="btn btn-primary delete-confirm" {{action "delete"}}>Delete</button>
+        {{else}}
+          <button type="button" class="btn btn-primary save" {{action "save" model}}>Save changes</button>
+        {{/if}}
       </div>
     </div>
   </div>

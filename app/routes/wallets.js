@@ -5,10 +5,16 @@ export default Ember.Route.extend({
     return this.store.findAll("wallet");
   },
   actions: {
-    delete: function (wallet) {
-      if (confirm('Are you sure?')) {
-        wallet.destroyRecord();
-      }
+    openDialog: function (wallet) {
+      this.get("controller").set('isModalDialogActive', true);
+      this.get("controller").set('wallet', wallet);
+    },
+    closeDialog: function () {
+      this.get("controller").set('isModalDialogActive', false);
+    },
+    delete: function () {
+      this.get('controller.wallet').destroyRecord();
+      this.get("controller").set('isModalDialogActive', false);
     }
   }
 });

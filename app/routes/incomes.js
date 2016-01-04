@@ -5,10 +5,16 @@ export default Ember.Route.extend({
     return this.store.findAll("income");
   },
   actions: {
-    delete: function (income) {
-      if (confirm('Are you sure?')) {
-        income.destroyRecord();
-      }
+    openDialog: function (income) {
+      this.get("controller").set('isModalDialogActive', true);
+      this.get("controller").set('income', income);
+    },
+    closeDialog: function () {
+      this.get("controller").set('isModalDialogActive', false);
+    },
+    delete: function () {
+      this.get('controller.income').destroyRecord();
+      this.get("controller").set('isModalDialogActive', false);
     }
   }
 });

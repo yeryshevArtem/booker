@@ -20,7 +20,6 @@ test('visiting /currencies', function(assert) {
   });
 });
 
-
 test('clicked delete1 and confirm', function(assert) {
   visit('/currencies');
   click('.delete-item');

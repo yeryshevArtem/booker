@@ -33,6 +33,7 @@ test('Editing current currency', function(assert) {
     assert.equal(currentRouteName(), 'currencies.index');
   });
 });
+
 test('Return back', function(assert) {
   visit('/currencies');
   click('.primary');

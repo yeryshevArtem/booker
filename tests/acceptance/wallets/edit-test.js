@@ -20,7 +20,6 @@ test('visiting /wallets/edit/id', function(assert) {
   });
 });
 
-
 test('Editing current wallet', function(assert) {
   visit('/wallets');
   click('.primary');

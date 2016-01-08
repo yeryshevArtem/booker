@@ -33,6 +33,7 @@ test('Editing current income', function(assert) {
     assert.equal(currentRouteName(), 'incomes.index');
   });
 });
+
 test('Return back', function(assert) {
   visit('/incomes');
   click('.primary');

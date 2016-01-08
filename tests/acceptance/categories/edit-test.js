@@ -19,7 +19,6 @@ test('visiting /categories/edit/id', function(assert) {
   });
 });
 
-
 test('Editing current category', function(assert) {
   visit('/categories');
   click('.primary');

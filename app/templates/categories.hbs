@@ -3,6 +3,11 @@
 {{/link-to}}
 {{table-grid content=model deleteEntity="openDialog" contentDeleted=contentDeleted}}
 {{#if isModalDialogActive}}
-  {{modal-window model=model  delete="delete" close="closeDialog" title="Delete category" isDeleteConfirm=true}}
+  {{modal-window
+    model=model
+    delete="delete"
+    close="closeDialog"
+    title="Delete category"
+    isDeleteConfirm=true}}
 {{/if}}
 {{outlet}}

@@ -11,7 +11,7 @@ export default Ember.Route.extend(RouteFormMixin, {
   },
   actions: {
     back: function () {
-      return this.transitionTo('categories'); //transition to back route
+      return this.transitionTo('categories'); 
     }
   }
 });

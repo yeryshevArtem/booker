@@ -30,6 +30,11 @@
   </div>
 </div>
 {{#if isModalDialogActive}}
-  {{modal-window model=model  delete="delete"  close="closeDialog" title="Delete income" isDeleteConfirm=true}}
+  {{modal-window
+    model=model
+    delete="delete"
+    close="closeDialog"
+    title="Delete income"
+    isDeleteConfirm=true}}
 {{/if}}
 {{outlet}}

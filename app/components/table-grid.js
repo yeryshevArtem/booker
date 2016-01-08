@@ -7,8 +7,7 @@ export default Ember.Component.extend({
   }.property("content"),
   actions: {
     deleteEntity: function (contentDeleted) {
-      // let content = this.get('content');
-      this.sendAction("deleteEntity", contentDeleted);//pass content
+      this.sendAction("deleteEntity", contentDeleted); //pass content
     }
   }
 });

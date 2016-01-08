@@ -11,8 +11,7 @@ export default Ember.Component.extend({
       this.sendAction("delete");
     },
     save: function () {
-      let model = this.get('model');
-      this.sendAction('save', model);////ATTENTION
+      this.sendAction('save', this.get('model'));
     }
   }
 });

@@ -2,16 +2,12 @@
 # vi: set ft=ruby :
 
 Vagrant.configure(2) do |config|
-  config.vm.box = "hashicorp/precise32"
-  config.vm.network "forwarded_port", guest: 4200, host: 4200
-  config.vm.network "forwarded_port", guest: 35729, host: 35729
+  config.vm.box = "ubuntu/trusty32"
   config.vm.network "private_network", ip: "192.168.33.10"
-  config.vm.synced_folder "./", "/home/vagrant/ember-booker", id: "vagrant-root",
-    owner: "vagrant",
-    group: "vagrant",
-    mount_options: ["dmode=777,fmode=777"]
+  config.vm.network "forwarded_port", guest: 4200, host: 4200
+  config.vm.network "forwarded_port", guest: 49152, host: 49152
   config.vm.provider "virtualbox" do |vb|
-    vb.memory = "1024"
+    vb.memory = "512"
   end
   config.vm.provision "shell", privileged: false, inline: <<-SHELL
     echo vagrant | sudo -S apt-get update
@@ -22,8 +18,8 @@ Vagrant.configure(2) do |config|
     echo "Installing nvm..."
     git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
     . ~/.nvm/nvm.sh
-    #sed -i '$ export NVM_DIR="$HOME/.nvm" [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"' .bashrc
-    #source .bashrc
+    sed -i '$ export NVM_DIR="$HOME/.nvm"\[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"' .bashrc
+    source .bashrc
     echo "Installing node..."
     nvm install 4.0
     nvm alias default 4.0
@@ -32,12 +28,6 @@ Vagrant.configure(2) do |config|
     npm install -g bower
     echo "Installing ember-cli..."
     npm install -g ember-cli
-    cd /home/vagrant/ember-booker
-    echo "Installing node packages for the project..."
-    npm install
-    echo "Installing bower packages for the project..."
-    bower install
-    echo "Running ember server..."
-    ember s
+    mkdir /home/vagrant/ember-booker
   SHELL
 end

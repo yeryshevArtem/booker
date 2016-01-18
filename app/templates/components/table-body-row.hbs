@@ -1,7 +1,7 @@
 <tr>
-  {{#each values as |value|}}
-    <td>{{value}}</td>
-  {{/each}}
+  {{#each-in content as |key value|}}
+    {{log value}}
+  {{/each-in}}
   <td>
     {{#link-to "categories.edit" content.id  classNames="btn btn-primary primary"}}Edit{{/link-to}}
   </td>

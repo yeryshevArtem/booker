@@ -11,23 +11,20 @@ Vagrant.configure(2) do |config|
   end
   config.vm.provision "shell", privileged: false, inline: <<-SHELL
     echo vagrant | sudo -S apt-get update
-    echo "Installing git, build-essential and libssl-dev..."
     echo vagrant | sudo -S apt-get install -y build-essential
     echo vagrant | sudo -S apt-get install -y libssl-dev
     echo vagrant | sudo -S apt-get install -y git
-    echo "Installing nvm..."
     git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
     . ~/.nvm/nvm.sh
-    sed -i '$ export NVM_DIR="$HOME/.nvm"\[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"' .bashrc
-    source .bashrc
-    echo "Installing node..."
+    sed -i '$ export NVM_DIR="$HOME/.nvm"\n[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"' .bash_rc
+    source .bash_rc
     nvm install 4.0
     nvm alias default 4.0
     nvm use default
-    echo "Installing bower..."
     npm install -g bower
-    echo "Installing ember-cli..."
-    npm install -g ember-cli
     mkdir /home/vagrant/ember-booker
+    cd /home/vagrant/ember-booker
+    npm install
+    bower install
   SHELL
 end
